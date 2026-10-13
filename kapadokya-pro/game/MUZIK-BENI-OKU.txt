@@ -1,0 +1,2 @@
+Kendi muzik dosyan icin: bu klasore `music.mp3` koy ve `bridge/config.json` -> `music.bpm` degerini sarki BPM'ine esitle.
+Yoksa oyun Anadolu tadinda uretken elektronik muzik calar (hype ile katmanlanir, DROP'ta yapi bozulur).

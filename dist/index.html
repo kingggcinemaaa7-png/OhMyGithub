@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kapadokya Beat Vadisi PRO — 3B Festival</title>
+<style>
+:root{--bg:#05010e;--pink:#ff2d95;--cyan:#19d3ff;--gold:#ffb300;--card:#120826}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:#fff;font-family:"Segoe UI",Arial,sans-serif;min-height:100vh}
+header{padding:28px 20px 10px;text-align:center}
+header h1{font-size:clamp(28px,5vw,54px);font-weight:900;letter-spacing:3px;text-shadow:0 0 26px var(--pink)}
+header h1 em{color:var(--cyan);font-style:normal}
+header p{opacity:.8;margin-top:8px}
+.badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.badges span{background:var(--card);border:1px solid #ffffff2e;border-radius:999px;padding:6px 14px;font-size:13px}
+#stage{position:relative;max-width:520px;aspect-ratio:9/13;margin:18px auto;border-radius:18px;overflow:hidden;border:1px solid #ffffff2e;box-shadow:0 12px 60px #ff2d9544}
+#stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+#overlay{position:absolute;inset:0;display:flex;flex-direction:column;gap:14px;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 35%,#2a1248ee 0%,#000000d9 70%);text-align:center;padding:20px}
+#overlay small{opacity:.7;letter-spacing:4px}
+#startBtn{font-size:22px;font-weight:800;padding:14px 44px;border-radius:14px;border:0;background:linear-gradient(90deg,var(--pink),var(--gold));color:#fff;cursor:pointer}
+#hud{position:absolute;left:10px;bottom:10px;font-size:12px;opacity:.85;background:#00000088;padding:6px 10px;border-radius:8px}
+main{max-width:900px;margin:0 auto;padding:10px 20px 60px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:16px}
+.card{background:var(--card);border:1px solid #ffffff1e;border-radius:14px;padding:16px}
+.card h3{font-size:16px;margin-bottom:6px;color:var(--gold)}
+.card p{font-size:14px;opacity:.85;line-height:1.5}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #ffffff1a}
+th{color:var(--cyan)}
+footer{text-align:center;opacity:.6;font-size:13px;padding:24px}
+code{background:#ffffff14;padding:2px 6px;border-radius:6px}
+</style>
+</head>
+<body>
+<header>
+  <h1>KAPADOKYA <em>BEAT VADİSİ</em> PRO</h1>
+  <p>3B TikTok LIVE dans şovu • Chatterbox TTS • Üretim sürümü v2.0.0</p>
+  <div class="badges"><span>1080×1920 Dikey Sahne</span><span>Chatterbox TTS (Türkçe)</span><span>50 Dansçı</span><span>7 Rütbe</span></div>
+</header>
+<div id="stage">
+  <canvas id="c" width="540" height="780"></canvas>
+  <div id="overlay">
+    <small>KAPADOKYA • PRO</small>
+    <button id="startBtn">Start</button>
+    <p style="font-size:13px;opacity:.75">Sahne önizlemesini başlatmak için dokun.<br>OBS: <code>?auto=1</code> ile otomatik başlar.</p>
+  </div>
+  <div id="hud">HYPE <b id="hype">0</b> • dansçı <b id="dancers">0</b></div>
+</div>
+<main>
+  <div class="grid">
+    <div class="card"><h3>3B Festival Sahnesi</h3><p>Peri bacaları, LED teraslar, DJ kabini, 12 lazer, yıldız yağmuru ve şafak finali. 8 sinematik kamera planı.</p></div>
+    <div class="card"><h3>Chatterbox TTS</h3><p>Tek üretim sesi: Chatterbox Multilingual V3 (Türkçe). Önbellekli, kuyruklu, müzik-ducking'li anonslar.</p></div>
+    <div class="card"><h3>TikTok Kuralları</h3><p>Yorum sahneye alır, hediye hype ve rütbe kazandırır. Ödeme yapılan hediye asla düşürülmez.</p></div>
+  </div>
+  <table>
+    <tr><th>Hediye</th><th>Sahne olayı</th></tr>
+    <tr><td>≥ 30 elmas</td><td>Sesli anons</td></tr>
+    <tr><td>≥ 200</td><td>Yıldız yağmuru</td></tr>
+    <tr><td>≥ 500</td><td>İsim gökyüzünde</td></tr>
+    <tr><td>≥ 2000</td><td>Büyük ışık töreni</td></tr>
+    <tr><td>≥ 5000</td><td>DJ koltuğu (90 sn)</td></tr>
+  </table>
+</main>
+<footer>Yerelde çalıştır: <code>kapadokya-pro/BASLAT.bat</code> → <code>http://127.0.0.1:8787/?auto=1</code> • Bu sayfa statik önizlemedir.</footer>
+<script>
+(function(){
+  var cv=document.getElementById('c'),x=cv.getContext('2d'),W=cv.width,H=cv.height;
+  var stars=[],i;for(i=0;i<140;i++)stars.push({x:Math.random()*W,y:Math.random()*H*0.55,r:Math.random()*1.6+0.4,p:Math.random()*6});
+  var balloons=[];for(i=0;i<5;i++)balloons.push({x:Math.random()*W,y:60+Math.random()*220,s:6+Math.random()*8,v:0.15+Math.random()*0.25,h:Math.random()});
+  var hype=0,dancers=8,t=0,running=false;
+  var bHype=document.getElementById('hype'),bD=document.getElementById('dancers');
+  function chim(px,py,w,h,hue){var g=x.createLinearGradient(px,py-h,px,py);g.addColorStop(0,'hsl('+hue+',30%,32%)');g.addColorStop(1,'hsl('+hue+',35%,16%)');x.fillStyle=g;x.beginPath();x.moveTo(px-w/2,py);x.lineTo(px-w*0.22,py-h*0.75);x.lineTo(px+w*0.22,py-h*0.75);x.lineTo(px+w/2,py);x.closePath();x.fill();x.fillStyle=g;x.beginPath();x.moveTo(px-w*0.32,py-h*0.75);x.lineTo(px,py-h*1.05);x.lineTo(px+w*0.32,py-h*0.75);x.closePath();x.fill();x.fillStyle='#ffcf7a';x.fillRect(px-2,py-h*0.5,4,6);}
+  function frame(){
+    t+=0.016;if(running){hype=Math.min(100,hype+0.35);if(hype>=100)hype=0;}
+    var g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#03010f');g.addColorStop(0.5,'#1a0a3c');g.addColorStop(0.75,'#4a1a5a');g.addColorStop(1,'#0a0518');x.fillStyle=g;x.fillRect(0,0,W,H);
+    var s;for(s=0;s<stars.length;s++){var st=stars[s];x.globalAlpha=0.4+0.6*Math.abs(Math.sin(t*2+st.p));x.fillStyle='#cfd8ff';x.beginPath();x.arc(st.x,st.y,st.r,0,7);x.fill();}x.globalAlpha=1;
+    x.fillStyle='#fff4d6';x.beginPath();x.arc(W*0.8,70,22,0,7);x.fill();
+    var b;for(b=0;b<balloons.length;b++){var bl=balloons[b];bl.x+=bl.v;if(bl.x>W+20)bl.x=-20;bl.y+=Math.sin(t+bl.h*6)*0.2;x.fillStyle='hsl('+(bl.h*360)+',80%,55%)';x.beginPath();x.arc(bl.x,bl.y,bl.s,0,7);x.fill();x.fillStyle='#5a3a20';x.fillRect(bl.x-3,bl.y+bl.s+4,6,5);}
+    chim(W*0.12,H*0.72,70,190,18);chim(W*0.3,H*0.74,90,240,12);chim(W*0.72,H*0.74,86,230,22);chim(W*0.9,H*0.72,64,170,8);
+    var r;for(r=0;r<4;r++){var bw=W/4;x.fillStyle=['#ff2d95','#19d3ff','#ffb300','#ff2d95'][r];x.globalAlpha=0.25+0.55*Math.abs(Math.sin(t*3+r));x.fillRect(r*bw+6,H-70,bw-12,10+30*Math.abs(Math.sin(t*2.4+r*1.3))*(0.4+hype/140));}x.globalAlpha=1;
+    for(var d=0;d<dancers;d++){var dx=40+d*(W-80)/Math.max(1,dancers-1),dy=H-90-Math.abs(Math.sin(t*4+d))*14*(0.5+hype/120);x.fillStyle='hsl('+(d*36+t*20)+',80%,60%)';x.beginPath();x.arc(dx,dy-22,8,0,7);x.fill();x.fillRect(dx-6,dy-16,12,22);}
+    x.fillStyle='#fff';x.font='bold 26px sans-serif';x.textAlign='center';x.fillText('KAPADOKYA',W/2,H*0.62);x.fillStyle='#19d3ff';x.font='bold 20px sans-serif';x.fillText('BEAT VADİSİ • PRO',W/2,H*0.62+28);
+    bHype.textContent=Math.round(hype);bD.textContent=dancers;
+    requestAnimationFrame(frame);
+  }
+  document.getElementById('startBtn').addEventListener('click',function(){document.getElementById('overlay').style.display='none';running=true;});
+  if(new URLSearchParams(location.search).get('auto')==='1'){document.getElementById('overlay').style.display='none';running=true;}
+  frame();
+})();
+</script>
+</body>
+</html>

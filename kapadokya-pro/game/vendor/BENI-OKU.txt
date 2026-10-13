@@ -1,0 +1,1 @@
+Three.js ilk calistirmada buraya otomatik indirilir (internet gerekir). Elle koymak istersen: https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js -> three.module.js

@@ -1,0 +1,8 @@
+{
+  "name": "kapadokya-pro-bridge",
+  "version": "2.0.0",
+  "private": true,
+  "main": "server.js",
+  "scripts": { "start": "node server.js", "sim": "node server.js --sim", "test": "node test.js" },
+  "dependencies": { "tiktok-live-connector": "2.1.0" }
+}

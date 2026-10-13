@@ -15,3 +15,5 @@ screenshots/
 *.zip
 .DS_Store
 Thumbs.db
+
+.agents/

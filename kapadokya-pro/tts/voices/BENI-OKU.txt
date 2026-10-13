@@ -1,0 +1,5 @@
+Bu klasöre DJ/anonslar için örnek bir Türkçe ses koy:
+  tts/voices/dj-ref.wav  (6-15 sn, temiz, gürültüsüz, 16kHz+ wav/mp3)
+
+Yoksa Chatterbox varsayılan Türkçe ses kullanır. Ortam değişkeni:
+  TTS_REF_WAV=C:\...\kapadokya-pro\tts\voices\dj-ref.wav

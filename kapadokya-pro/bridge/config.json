@@ -1,0 +1,120 @@
+{
+  "version": "2.0.0-pro",
+  "tiers": [
+    {
+      "name": "Katılımcı",
+      "min": 0,
+      "color": "#4A90D9"
+    },
+    {
+      "name": "Dansçı",
+      "min": 500,
+      "color": "#1ABC9C"
+    },
+    {
+      "name": "Yıldız",
+      "min": 2000,
+      "color": "#F1C40F"
+    },
+    {
+      "name": "Balon Pilotu",
+      "min": 5000,
+      "color": "#E67E22"
+    },
+    {
+      "name": "Onur Konuğu",
+      "min": 15000,
+      "color": "#9B59B6"
+    },
+    {
+      "name": "Baş DJ",
+      "min": 50000,
+      "color": "#E74C3C"
+    },
+    {
+      "name": "Vadi Efsanesi",
+      "min": 150000,
+      "color": "#FFD700"
+    }
+  ],
+  "ladder": {
+    "announceMin": 30,
+    "skyMin": 500,
+    "djMin": 5000,
+    "djSeconds": 90,
+    "starRainMin": 200,
+    "lightCeremonyMin": 2000
+  },
+  "combo": {
+    "thresholds": [
+      3,
+      5,
+      10
+    ],
+    "multipliers": [
+      1.5,
+      2.0,
+      3.0
+    ]
+  },
+  "hype": {
+    "decayPerSec": 2,
+    "perPoint": 0.12,
+    "minPerGift": 3,
+    "maxPerGift": 40,
+    "dropCooldownSec": 30
+  },
+  "cooldownSec": {
+    "drop": 30,
+    "starRain": 45,
+    "lightCeremony": 120,
+    "dawn": 300,
+    "laserShow": 40,
+    "duel": 60
+  },
+  "dancers": {
+    "max": 50,
+    "lifetimeSec": 300
+  },
+  "join": {
+    "cooldownSec": 25
+  },
+  "music": {
+    "bpm": 124,
+    "file": "music.mp3"
+  },
+  "tts": {
+    "enabled": true,
+    "provider": "chatterbox",
+    "lang": "tr",
+    "serverUrl": "http://127.0.0.1:5002",
+    "voice": "tr-dj",
+    "exaggeration": 0.5,
+    "temperature": 0.8,
+    "timeoutMs": 8000,
+    "cacheTtlSec": 86400,
+    "fallbackBrowser": false,
+    "note": "Tek uretim saglayici Chatterbox Multilingual V3 (tts/server.py). Tarayici speechSynthesis varsayilan kapali."
+  },
+  "ai": {
+    "enabled": true,
+    "tickSec": 30,
+    "timeoutMs": 6000,
+    "baseUrl": "https://integrate.api.nvidia.com/v1",
+    "model": "meta/llama-3.1-70b-instruct"
+  },
+  "giftColors": {
+    "Rose": "#ff0050",
+    "TikTok": "#00f0f0",
+    "GG": "#ff3c00",
+    "Ice Cream Cone": "#78c8ff",
+    "Finger Heart": "#ffdc00",
+    "Perfume": "#ff64b4",
+    "Hand Hearts": "#ff3c78",
+    "Corgi": "#9650ff",
+    "Galaxy": "#8000ff",
+    "Lion": "#ff8c00",
+    "Universe": "#50dcff",
+    "Doughnut": "#ff9ecb"
+  }
+}

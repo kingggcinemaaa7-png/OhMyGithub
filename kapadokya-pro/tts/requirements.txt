@@ -1,0 +1,5 @@
+# Üretim kurulumu (GPU önerilir). Mock test için ek kurulum gerekmez.
+# Gerçek ses için: pip install -r requirements.txt  (ilk model indirme ~2GB, internet gerekir)
+chatterbox-tts>=0.2.0
+torch>=2.3
+torchaudio>=2.3
