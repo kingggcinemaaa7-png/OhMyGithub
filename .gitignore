@@ -1,0 +1,17 @@
+node_modules/
+*.log
+*.pid
+.env
+.env.*
+!.env.example
+auth.json
+screenshots/
+.playwright-cli/
+.opencode/
+.agentsweb/
+.opencode-web/
+.omgithub-runtime/
+.opencode-ssh/
+*.zip
+.DS_Store
+Thumbs.db
