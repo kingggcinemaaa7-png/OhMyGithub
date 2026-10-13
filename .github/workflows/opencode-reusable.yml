@@ -170,7 +170,7 @@ jobs:
         run: |
           set -euo pipefail
           /usr/bin/time -p git init "$RUNTIME_DIR"
-          /usr/bin/time -p git -C "$RUNTIME_DIR" remote add origin https://github.com/AgentsLoop/OhMyGithub.git
+          /usr/bin/time -p git -C "$RUNTIME_DIR" remote add origin https://github.com/${{ github.repository }}.git
           /usr/bin/time -p git -C "$RUNTIME_DIR" fetch --depth=1 origin "$RUNTIME_REF"
           /usr/bin/time -p git -C "$RUNTIME_DIR" checkout --detach FETCH_HEAD
           [[ "$(git -C "$RUNTIME_DIR" rev-parse HEAD)" == "$RUNTIME_REF" ]]
